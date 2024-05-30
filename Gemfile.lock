@@ -302,6 +302,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   rubocop-rspec
+  rubocop-rspec_rails
   stimulus-rails
   turbo-rails
   web-console
