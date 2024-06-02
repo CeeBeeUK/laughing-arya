@@ -32,3 +32,8 @@ group :development do
   # gem "rack-mini-profiler" # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "spring" # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
 end
+
+group :test do
+  gem 'database_cleaner-active_record'
+  gem 'simplecov', require: false
+end
