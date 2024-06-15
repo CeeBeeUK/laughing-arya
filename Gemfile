@@ -7,6 +7,9 @@ gem 'rails', '~> 7.1.3', '>= 7.1.3.3'
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'importmap-rails' # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'jbuilder' # Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 gem 'pg', '~> 1.1' # Use postgresql as the database for Active Record
 gem 'propshaft' # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'puma', '>= 5.0' # Use the Puma web server [https://github.com/puma/puma]
