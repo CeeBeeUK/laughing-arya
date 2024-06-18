@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_15_214053) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_18_200957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_214053) do
     t.index ["name"], name: "index_countries_on_name", unique: true
   end
 
+  create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "country_id", null: false
+    t.string "city", null: false
+    t.date "date", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_events_on_country_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "uid"
     t.string "provider"
@@ -33,4 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_214053) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "events", "countries"
 end
