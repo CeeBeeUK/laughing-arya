@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_18_200957) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_23_153914) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "acts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "country_id", null: false
+    t.uuid "event_id", null: false
+    t.integer "real_final_score"
+    t.integer "home_final_score"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_acts_on_country_id"
+    t.index ["event_id"], name: "index_acts_on_event_id"
+  end
 
   create_table "countries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
@@ -44,5 +56,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_200957) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "acts", "countries"
+  add_foreign_key "acts", "events"
   add_foreign_key "events", "countries"
 end
