@@ -13,3 +13,14 @@ updates:
       rubocop:
         patterns:
           - "rubocop*"
+  - package-ecosystem: npm
+    directory: "/"
+    target-branch: main
+    allow:
+      - dependency-type: "all"
+    schedule:
+      interval: monthly
+    groups:
+      node:
+        patterns:
+          - '*'
