@@ -5,10 +5,13 @@
 
 version: 2
 updates:
-  - package-ecosystem: "bundler" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: bundler
+    directory: "/"
+    target-branch: main
+    allow:
+      - dependency-type: "all"    
     schedule:
-      interval: "weekly"
+      interval: weekly
     groups:
       bundler:
         patterns:
