@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby file: '.ruby-version'
 
-gem 'rails', '~> 7.2.1'
+gem 'rails', '~> 7.2.2'
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'importmap-rails' # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
